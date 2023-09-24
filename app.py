@@ -22,18 +22,19 @@ if __name__ == "__main__":
     st.title("Your first app!")
     wav_audio_data = st_audiorec()
     
-    os.makedirs("audio", exist_ok=True)
-    with open("audio/test1.wav", "wb") as audio:
-        audio.write(wav_audio_data)
+    if wav_audio_data is not None:
+        os.makedirs("audio", exist_ok=True)
+        with open("audio/test1.wav", "wb") as audio:
+            audio.write(wav_audio_data)
     
-    with st.spinner("Sto caricando il modello e trascrivendo l'audio..."):
-        model = whisper.load_model("small")
-        result = model.transcribe("audio/test1.wav", fp16=False)
+        with st.spinner("Sto caricando il modello e trascrivendo l'audio..."):
+            model = whisper.load_model("small")
+            result = model.transcribe("audio/test1.wav", fp16=False)
 
-    
-    st.text_area("Testo trascritto:", result["text"])
+        
+        st.text_area("Testo trascritto:", result["text"])
 
-    st.button("Copia", on_click=copy_to_clipboard, args=(result["text"],))
+        st.button("Copia", on_click=copy_to_clipboard, args=(result["text"],))
 
 
 
