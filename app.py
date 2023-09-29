@@ -36,6 +36,8 @@ if __name__ == "__main__":
 
         st.button("Copia", on_click=copy_to_clipboard, args=(result["text"],))
 
+        st.code(result["text"])
+
 
 
     # st.balloons()
