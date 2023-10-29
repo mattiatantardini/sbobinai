@@ -23,11 +23,11 @@ if __name__ == "__main__":
         st.write("Sbobinare a mano è solo un ricordo!")
         prompt = st.text_area("Indica l'argomento degli audio per una migliore trascrizione (premi invio per confermare)", value="")
 
-    upload_tab, record_tab = st.tabs(["Carica", "Registra"])
+    os.makedirs(AUDIO_FOLDER, exist_ok=True)
 
+    upload_tab, record_tab = st.tabs(["Carica", "Registra"])
     with upload_tab:
         upload(prompt)
-
     with record_tab:
         record(prompt)
 
