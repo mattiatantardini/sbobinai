@@ -7,6 +7,7 @@ import whisper
 from st_audiorec import st_audiorec
 
 from app.style import footer_include_version
+from app.tabs.upload import upload
 
 
 if __name__ == "__main__":
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     upload_tab, record_tab = st.tabs(["Carica", "Registra"])
 
     with upload_tab:
-        st.balloons()
+        upload()
 
     with record_tab:
         wav_audio_data = st_audiorec()
