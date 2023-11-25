@@ -7,7 +7,7 @@ import streamlit as st
 from app.style import footer_include_version
 from app.tabs.upload import upload
 from app.tabs.record import record
-from settings.constants import MODEL_TYPE_DICT, AUDIO_FOLDER
+from settings.constants import AUDIO_FOLDER
 
 
 if __name__ == "__main__":
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     with st.sidebar:
         st.title("SbobinAI")
         st.write("Sbobinare a mano è solo un ricordo!")
-        prompt = st.text_area("Indica l'argomento degli audio per una migliore trascrizione (premi invio per confermare)", value="")
+        prompt = st.text_area("Indica l'argomento degli audio per una migliore trascrizione (premi Ctrl+Invio per confermare)", value="")
 
     os.makedirs(AUDIO_FOLDER, exist_ok=True)
 
